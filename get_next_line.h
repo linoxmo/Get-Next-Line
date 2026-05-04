@@ -6,7 +6,7 @@
 /*   By: tmagoudi <tmagoudi@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/03 18:59:50 by tmagoudi          #+#    #+#             */
-/*   Updated: 2026/05/04 15:57:05 by tmagoudi         ###   ########.fr       */
+/*   Updated: 2026/05/04 19:46:46 by tmagoudi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,9 @@
 #include <unistd.h>
 
 char *	get_next_line(int fd);
+char    *ft_strjoin(char const *s1, char const *s2);
+char	*ft_strdup(char const *s1);
+
 
 
 #endif
