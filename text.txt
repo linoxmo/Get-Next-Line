@@ -1,0 +1,19 @@
+Hello
+Ceci est un petit fichier text pour tester ma fonction get next line
+Je vais dire des mots random pour tester des trucs.
+Hey
+hello
+       
+     
+    
+
+je ne sais pas qui je suis 
+non
+rien de rien
+non 
+je ne regrette rien
+ni la vie
+	
+ni l'amour
+
+fin du fichier
