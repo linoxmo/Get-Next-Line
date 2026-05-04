@@ -6,11 +6,23 @@
 /*   By: tmagoudi <tmagoudi@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/04 19:36:57 by tmagoudi          #+#    #+#             */
-/*   Updated: 2026/05/04 19:51:44 by tmagoudi         ###   ########.fr       */
+/*   Updated: 2026/05/04 20:22:43 by tmagoudi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
+
+size_t  ft_strlen(const char *str)
+{
+        size_t  i;
+
+        if (!str)
+		return (0);
+	i = 0;
+        while (str[i])
+                i++;
+        return (i);
+}
 
 char    *ft_strjoin(char const *s1, char const *s2)
 {
@@ -24,7 +36,7 @@ char    *ft_strjoin(char const *s1, char const *s2)
                 return (NULL);
         l_1 = ft_strlen(s1);
         l_2 = ft_strlen(s2);
-        if (l_1 > ((size_t)-1) - l_2 - 1)
+        if (l_1 > ((size_t) - 1) - l_2 - 1)
                 return (NULL);
         new = malloc(l_1 + l_2 + 1);
         if (!new)
@@ -48,9 +60,7 @@ char    *ft_strdup(const char *s)
         if (!s)
                 return (NULL);
         i = 0;
-	while (str[i])
-		i++;
-	dst = malloc(i + 1);
+	dst = malloc(ft_strlen(s) + 1);
         if (!dst)
                 return (NULL);
         i = 0;
@@ -63,4 +73,18 @@ char    *ft_strdup(const char *s)
         return (dst);
 }
 
+char    *ft_strchr(const char *s, int c)
+{
+        if (!s)
+                return (NULL);
+        while (*s)
+        {
+                if (*s == (char)c)
+                        return ((char *)&(*s));
+                s++;
+        }
+        if (*s == (char)c)
+                return ((char *)&(*s));
+        return (NULL);
+}
 

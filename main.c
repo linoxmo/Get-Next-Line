@@ -6,7 +6,7 @@
 /*   By: tmagoudi <tmagoudi@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/03 19:08:52 by tmagoudi          #+#    #+#             */
-/*   Updated: 2026/05/04 16:07:30 by tmagoudi         ###   ########.fr       */
+/*   Updated: 2026/05/04 20:13:05 by tmagoudi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,12 @@ int	main(void)
 {
 	int		fd;
 	const	char*	pathname = "/home/tmagoudi/Documents/Projects/GNL/text.txt";
-	char *	buffer;
+	char *buffer;
 
 	fd = open(pathname, O_RDONLY);
 	buffer = get_next_line(fd);
+	printf("le text total est \n%s\n", buffer);
+	free(buffer);
 	fd = close(fd);
 	if (fd == -1)
 	{
