@@ -6,7 +6,7 @@
 /*   By: tmagoudi <tmagoudi@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/04 14:43:26 by tmagoudi          #+#    #+#             */
-/*   Updated: 2026/05/06 12:22:07 by tmagoudi         ###   ########.fr       */
+/*   Updated: 2026/05/06 13:55:54 by tmagoudi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,14 +45,12 @@ char	*get_next_line(int fd)
 {
 	char	*buffer;
 	int	nb_read;
-	int	count;
-	static	char	*result;
+	char	*result;
 	char	*temp;
 
 	buffer = malloc(sizeof(char) * (20 + 1));
 	result = ft_strndup("",1);
 	nb_read = -1;
-	count = 0;
 	while (nb_read) 
 	{
 		nb_read = read(fd, buffer, 20); 
@@ -61,15 +59,12 @@ char	*get_next_line(int fd)
 		free(result);
 		result  =  temp;
 		if (ft_strchr(buffer, '\n'))
-		{	
-			count++;
-			printf("on passe le break apres %d iteration\n",count);	
 			break;
-		}
 		if (nb_read == -1)
 			return (free(result), free(buffer), NULL);
 	}
 	temp = ft_strndup(result, ft_strchr(result, '\n') - result); 
+	result = ft_substr(result,  ft_strchr(result, '\n') - result, ft_strlen(result) - ft_strlen(temp));
 	free(buffer);
-	return (temp);
+	return (result);
 }

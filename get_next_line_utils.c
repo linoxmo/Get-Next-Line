@@ -6,7 +6,7 @@
 /*   By: tmagoudi <tmagoudi@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/04 19:36:57 by tmagoudi          #+#    #+#             */
-/*   Updated: 2026/05/06 12:16:42 by tmagoudi         ###   ########.fr       */
+/*   Updated: 2026/05/06 13:53:29 by tmagoudi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,5 +86,32 @@ char    *ft_strchr(const char *s, int c)
         if (*s == (char)c)
                 return ((char *)&(*s));
         return (NULL);
+}
+
+char    *ft_substr(char const *s, unsigned int start, size_t len)
+{
+        char    *res;
+        size_t          i;
+
+        if (start >= ft_strlen(s))
+        {
+                res = malloc(1);
+                res[0]= '\0';
+                return (res);
+        }
+        res = malloc(sizeof(char) * (ft_strlen(s) - start) + 1);
+        if (!res)
+        {
+                return (NULL);
+        }
+        i = 0;
+        while (s[start] && i < len)
+        {
+                res[i] = s[start];
+                start++;
+                i++;
+        }
+        res[i] = '\0';
+        return (res);
 }
 

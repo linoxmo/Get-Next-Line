@@ -6,7 +6,7 @@
 /*   By: tmagoudi <tmagoudi@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/03 19:08:52 by tmagoudi          #+#    #+#             */
-/*   Updated: 2026/05/04 20:13:05 by tmagoudi         ###   ########.fr       */
+/*   Updated: 2026/05/06 13:34:23 by tmagoudi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 int	main(void)
 {
 	int		fd;
-	const	char*	pathname = "/home/tmagoudi/Documents/Projects/GNL/text.txt";
+	const	char*	pathname = "/home/user/GNL/text.txt";
 	char *buffer;
 
 	fd = open(pathname, O_RDONLY);
