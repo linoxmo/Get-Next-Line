@@ -6,7 +6,7 @@
 /*   By: tmagoudi <tmagoudi@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/04 19:36:57 by tmagoudi          #+#    #+#             */
-/*   Updated: 2026/05/04 20:22:43 by tmagoudi         ###   ########.fr       */
+/*   Updated: 2026/05/06 12:16:42 by tmagoudi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ char    *ft_strjoin(char const *s1, char const *s2)
         return (new);
 }
 
-char    *ft_strdup(const char *s)
+char    *ft_strndup(const char *s, size_t n)
 {
         size_t  i;
 	char    *dst;
@@ -60,11 +60,11 @@ char    *ft_strdup(const char *s)
         if (!s)
                 return (NULL);
         i = 0;
-	dst = malloc(ft_strlen(s) + 1);
+	dst = malloc(n + 1);
         if (!dst)
                 return (NULL);
         i = 0;
-        while (s[i])
+        while (s[i] && i < n)
         {
                 dst[i] = s[i];
                 i++;
