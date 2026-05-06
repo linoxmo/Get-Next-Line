@@ -6,7 +6,7 @@
 /*   By: tmagoudi <tmagoudi@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/04 19:36:57 by tmagoudi          #+#    #+#             */
-/*   Updated: 2026/05/06 13:53:29 by tmagoudi         ###   ########.fr       */
+/*   Updated: 2026/05/06 17:08:02 by tmagoudi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ char    *ft_strndup(const char *s, size_t n)
         {
                 dst[i] = s[i];
                 i++;
-        }
+        } 
         dst[i] = '\0';
         return (dst);
 }
