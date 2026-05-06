@@ -6,7 +6,7 @@
 /*   By: tmagoudi <tmagoudi@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/04 14:43:26 by tmagoudi          #+#    #+#             */
-/*   Updated: 2026/05/04 20:28:52 by tmagoudi         ###   ########.fr       */
+/*   Updated: 2026/05/06 11:37:10 by tmagoudi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,12 @@ char	*ft_check_nl(char *buffer)
 }
 */
 
+char	*ft_read(char *)
+{
+
+
+}
+
 char	*get_next_line(int fd)
 {
 	char	*buffer;
@@ -58,7 +64,8 @@ char	*get_next_line(int fd)
 		if (nb_read == -1)
 			return (free(result), free(buffer), NULL);
 	}
-	ft_read(result);
+	temp = ft_read(result);
+	result = ft_trim(result)
 	free(buffer);
-	return (result);
+	return (temp);
 }
