@@ -6,7 +6,7 @@
 /*   By: tmagoudi <tmagoudi@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/04 14:43:26 by tmagoudi          #+#    #+#             */
-/*   Updated: 2026/05/07 16:21:29 by tmagoudi         ###   ########.fr       */
+/*   Updated: 2026/05/07 17:23:23 by tmagoudi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,20 +59,22 @@ char	*get_next_line(int fd)
 	static char	*result;
 	char		*temp;
 
-	if (BUFFER_SIZE <= 0)
+	if (BUFFER_SIZE <= 0 || fd < 0)
 		return (NULL);
 	if (!result)
-		result = ft_strndup("", 1);
+		result = ft_strdup("");
 	result = ft_read(fd, result);
 	if (!result || !*result)
-		return (free(result), NULL);
+	{
+		free(result);
+		result = NULL;
+		return (NULL);
+	}
 	int i = 0;
 	while (result[i] && result[i] != '\n')
 		i++;
-	temp = ft_strndup(result, i + 1  
-			+ (ft_strchr(result, '\n') != -1));
+	temp = ft_substr(result, 0, i + 1);
 	result = ft_realloc_substr(result, i + 1
-			+ (ft_strchr(result, '\n') != -1), ft_strlen(result)
-			- ft_strlen(temp));
+			, ft_strlen(result) - ft_strlen(temp));
 	return (temp);
 }

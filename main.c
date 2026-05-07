@@ -6,7 +6,7 @@
 /*   By: tmagoudi <tmagoudi@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/03 19:08:52 by tmagoudi          #+#    #+#             */
-/*   Updated: 2026/05/07 15:11:51 by tmagoudi         ###   ########.fr       */
+/*   Updated: 2026/05/07 17:26:20 by tmagoudi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ int	main(void)
 		buffer = get_next_line(fd);
 	}
 	free(buffer);
+	buffer = (NULL);
 	fd = close(fd);
 	if (fd == -1)
 	{
