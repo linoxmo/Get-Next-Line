@@ -6,7 +6,7 @@
 /*   By: tmagoudi <tmagoudi@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/04 14:43:26 by tmagoudi          #+#    #+#             */
-/*   Updated: 2026/05/06 17:44:50 by tmagoudi         ###   ########.fr       */
+/*   Updated: 2026/05/07 16:21:29 by tmagoudi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,30 +31,48 @@ char	*ft_realloc_substr(char *s, unsigned int start, size_t len)
 	return (temp);
 }
 
-char	*get_next_line(int fd)
+char	*ft_read(int fd, char *result)
 {
-	char		*buffer;
-	int			nb_read;
-	static char	*result;
-	char		*temp;
+	char	*buffer;
+	int	nb_read;
 
-	buffer = malloc(sizeof(char) * (5000 + 1));
-	if (!result)
-		result = ft_strndup("", 1);
+	buffer = malloc(sizeof(char) * (BUFFER_SIZE + 1));
+	if (!buffer)
+		return (NULL);
 	nb_read = -1;
 	while (nb_read)
 	{
-		nb_read = read(fd, buffer, 5000);
-		if (nb_read == -1)
+		nb_read = read(fd, buffer, BUFFER_SIZE);
+		if (nb_read < 0)
 			return (free(result), free(buffer), NULL);
 		buffer[nb_read] = '\0';
 		result = ft_realloc_join(result, buffer);
-		if (ft_strchr(buffer, '\n'))
+		if (ft_strchr(buffer, '\n') > 0)
 			break ;
 	}
-	temp = ft_strndup(result, ft_strchr(result, '\n') - result + 1);
-	result = ft_realloc_substr(result, ft_strchr(result, '\n') - result + 1,
-			ft_strlen(result) - ft_strlen(temp));
 	free(buffer);
+	return (result);
+}
+
+char	*get_next_line(int fd)
+{
+	static char	*result;
+	char		*temp;
+
+	if (BUFFER_SIZE <= 0)
+		return (NULL);
+	if (!result)
+		result = ft_strndup("", 1);
+	result = ft_read(fd, result);
+	if (!result || !*result)
+		return (free(result), NULL);
+	int i = 0;
+	while (result[i] && result[i] != '\n')
+		i++;
+	temp = ft_strndup(result, i + 1  
+			+ (ft_strchr(result, '\n') != -1));
+	result = ft_realloc_substr(result, i + 1
+			+ (ft_strchr(result, '\n') != -1), ft_strlen(result)
+			- ft_strlen(temp));
 	return (temp);
 }

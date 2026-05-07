@@ -6,7 +6,7 @@
 /*   By: tmagoudi <tmagoudi@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/04 19:36:57 by tmagoudi          #+#    #+#             */
-/*   Updated: 2026/05/06 17:52:05 by tmagoudi         ###   ########.fr       */
+/*   Updated: 2026/05/07 15:30:50 by tmagoudi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,9 +52,9 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	return (new);
 }
 
-char	*ft_strndup(const char *s, size_t n)
+char	*ft_strndup(const char *s, int  n)
 {
-	size_t	i;
+	int	i;
 	char	*dst;
 
 	if (!s)
@@ -73,19 +73,23 @@ char	*ft_strndup(const char *s, size_t n)
 	return (dst);
 }
 
-char	*ft_strchr(const char *s, int c)
+int ft_strchr(const char *s, int c)
 {
+	int	count;
+
 	if (!s)
-		return (NULL);
+		return (-1);
+	count = 0;
 	while (*s)
 	{
 		if (*s == (char)c)
-			return ((char *)&(*s));
+			return (count);
 		s++;
+		count++;
 	}
 	if (*s == (char)c)
-		return ((char *)&(*s));
-	return (NULL);
+		return (count);
+	return (-1);
 }
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)

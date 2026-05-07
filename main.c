@@ -6,7 +6,7 @@
 /*   By: tmagoudi <tmagoudi@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/03 19:08:52 by tmagoudi          #+#    #+#             */
-/*   Updated: 2026/05/06 17:40:32 by tmagoudi         ###   ########.fr       */
+/*   Updated: 2026/05/07 15:11:51 by tmagoudi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ int	main(void)
 {
 	int			fd;
 	const char	*pathname = "/home/tmagoudi/Documents/Projects/GNL/text.txt";
+	const char	*pathname_1 = "/home/tmagoudi/Documents/Projects/GNL/text_1.txt";
 	const char	*pathname_2 = "/home/tmagoudi/Documents/Projects/GNL/text_2.txt";
 	char		*buffer;
 
@@ -29,6 +30,7 @@ int	main(void)
 		free(buffer);
 		buffer = get_next_line(fd);
 	}
+	free(buffer);
 	fd = close(fd);
 	if (fd == -1)
 	{
