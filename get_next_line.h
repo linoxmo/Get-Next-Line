@@ -6,7 +6,7 @@
 /*   By: tmagoudi <tmagoudi@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/03 18:59:50 by tmagoudi          #+#    #+#             */
-/*   Updated: 2026/05/07 16:38:16 by tmagoudi         ###   ########.fr       */
+/*   Updated: 2026/05/08 17:53:00 by tmagoudi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,10 @@
 
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 1
-
 # endif
+
+# define SEP '\n'
+
 # include <stdlib.h>
 # include <unistd.h>
 

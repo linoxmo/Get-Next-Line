@@ -6,7 +6,7 @@
 /*   By: tmagoudi <tmagoudi@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/04 14:43:26 by tmagoudi          #+#    #+#             */
-/*   Updated: 2026/05/07 17:23:23 by tmagoudi         ###   ########.fr       */
+/*   Updated: 2026/05/08 17:51:50 by tmagoudi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ char	*ft_read(int fd, char *result)
 			return (free(result), free(buffer), NULL);
 		buffer[nb_read] = '\0';
 		result = ft_realloc_join(result, buffer);
-		if (ft_strchr(buffer, '\n') > 0)
+		if (ft_strchr(buffer, SEP) > 0)
 			break ;
 	}
 	free(buffer);
@@ -71,7 +71,7 @@ char	*get_next_line(int fd)
 		return (NULL);
 	}
 	int i = 0;
-	while (result[i] && result[i] != '\n')
+	while (result[i] && result[i] != SEP)
 		i++;
 	temp = ft_substr(result, 0, i + 1);
 	result = ft_realloc_substr(result, i + 1
